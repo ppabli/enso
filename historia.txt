@@ -1,0 +1,113 @@
+Trabajo individual - Uso de GIT para el control de versiones
+
+Apartados
+
+Apartado 1-2 - Crear el repositorio y replicar la estructura indicada
+
+	Para este apartado crearemos inicialmente una nueva carpeta donde vamos a realizar la práctica.
+	Una vez tengamos la carpeta ya creada dentro de la misma vamos a abrir un terminal y ejecutaremos el comando "git init"
+
+	A continuación, replicamos la estructura indicada. Dentro de la carpeta "ControlDeCambios" crearemos 2 carpetas, la carpeta "Documentos" que
+	contendrá la descripción del proceso de control de cambios y documentación extra.
+	Al mismo nivel crearemos otra carpeta que sea "Plantillas" que contendrán las plantillas en blanco del proceso.
+
+	Adicionalmente se incluirá este mismo documento, comentando los pasos realizados durante la práctica.
+
+Apartado 3 - actualización del repositorio local
+
+	Después de tener creado el repositorio, replicada la estructura de directorios e introducido en los mismos tanto la descripción del proceso de 
+	control de cambios como las plantillas vacías, podemos actualizar el repositorio local.
+
+	Cabe destacar que GIT únicamente controla contenido no ficheros, es por ello por lo que, al ver los cambios del repo, con "git status" únicamente vamos
+	a ver el documento de Word con la descripción del proceso, así como las plantillas empleadas.
+
+	Para actualizar nuestro repositorio, primero vamos a ver los cambios introducidos, para ello usamos "git status". Si todos los cambios
+	son correctos podemos actualizar el repositorio haciendo uso de "git add .", desde la raíz del repositorio, para añadir los cambios
+	y confirmarlos con un commit, "git commit" con la opción "-m" introduciendo un mensaje descriptivo.
+
+Apartado 4 - Aplicación de etiquetas
+
+	Dado que en este punto el proyecto se encuentra en la versión R1, podemos mediante GIT indicar esa etiqueta en el repositorio.
+	Esto nos permitirá llevar un control de las versiones del proyecto y poder volver a una versión concreta en caso de ser necesario.
+
+	Para ello hacemos uso del comando "git tag -a R1 -m "Versión R1 del proyecto".
+
+Apartado 5 - Creación de las ramas
+
+	Durante la realización de la práctica, otros compañeros evaluaran el trabajo realizado aportando sugerencias de cambio o mejoras al mismo.
+	Para reflejar estas propuestas, vamos a crear una rama donde incluiremos el documento que contiene las sugerencias.
+
+	Para ello hacemos uso del comando "git checkout -b Mejoras". También podemos hacer uso de "git branch Mejoras" y "git checkout Mejoras" para
+	crear la rama y cambiar a la misma. Introducimos el documento con las sugerencias y actualizamos el repositorio con el comando
+	"git add ." y "git commit -m "Sugerencias de mejora"".
+
+Apartado 6 - Modificación del documento de proceso de control de cambios
+
+	Tras revisar los cambios propuestos por los compañeros, vamos a incluirlos en el documento de proceso de control de cambios.
+	Para ello modificamos el documento y actualizamos el repositorio con "git add ." y "git commit -m "Incluidas sugerencias de mejora"".
+
+Apartado 7 - Fusión de ramas
+
+	Una vez incluidas las sugerencias de mejora en el documento de proceso de control de cambios, vamos a fusionar la rama "Mejoras" con la rama
+	principal "master".
+
+	Para ello nos situamos en la rama "main" con "git checkout main" y hacemos uso del comando "git merge Mejoras". A su vez borramos la rama 
+	"Mejoras" con "git branch -d Mejoras".
+
+Apartado 8 - Borrado
+
+	Una vez fusionadas las ramas, ya no necesitamos el documento de propuesta de mejoras. Para borrarlo del repositorio hacemos uso del comando
+	"git rm" y actualizamos el repositorio con "git commit -m "Borrado documento de propuesta de mejoras"".
+
+Apartado 9 - Creación de la R2
+
+	Una vez realizados todos los cambios, vamos a crear una nueva etiqueta para la versión R2 del proyecto. Para ello hacemos uso del comando
+	"git tag -a R2 -m "Versión R2 del proyecto"".
+
+Apartado 10 - Actualización a la V3
+
+	Directamente en la rama principal, vamos a realizar cambios en el documento de proceso de control de cambios.
+	Estos cambios incluyen la versión V3 del documento. Una vez realizados los cambios, actualizamos el repositorio con "git add ." y
+	"git commit -m "Versión V3 del documento"".
+
+Apartado 11 - Creación de la R3
+
+	Nos damos cuenta de que no se han incluido las plantillas para la versión R3 del proyecto. Para solucionar esto, vamos a volver a la versión
+	R2 del proyecto y a incluir las plantillas en la carpeta "Plantillas".
+
+	Para ello hacemos uso del comando "git reset --hard R2" para volver a la versión R2 del proyecto. Una vez en la versión R2, incluimos las
+	plantillas en la carpeta "Plantillas" de nuevo el documento de proceso de control de cambios. Finalmente actualizamos el repositorio con 
+	"git add ." y "git commit -m "Incluidas plantillas para la versión R3"". A continuación, creamos la etiqueta "R3" con el comando
+	"git tag -a R3 -m "Versión R3 del proyecto"".
+
+Apartado 12 - Push la rama principal y los tags a un repositorio en GitHub
+
+	Para finalizar la práctica, vamos a subir el repositorio a un servidor remoto, en este caso GitHub. Para ello creamos un repositorio en
+	GitHub y seguimos las instrucciones que nos indica la página para subir nuestro repositorio local.
+
+	En primer lugar, creamos un repositorio en GitHub. Una vez creado, seguimos las instrucciones que nos indica la página para subir nuestro
+	repositorio local. En nuestro caso, ya que el repositorio ya está creado, simplemente seguimos las instrucciones que nos indica la pagina
+	para subir nuestro repositorio local.
+
+	Para subir el repositorio local a GitHub, primero ejecutaremos el comando "git remote add origin https://github.com/ppabli/enso.git" para
+	indicar la dirección del repositorio remoto. A continuación, subimos el repositorio con "git push -u origin main". Finalmente subimos las
+	etiquetas con "git push --tags".
+
+	Una vez subido el repositorio, podemos comprobar que se ha subido correctamente accediendo a la página de GitHub y comprobando que se han
+	subido tanto el repositorio como las etiquetas.
+
+Apartado 13 - Cambios adicionales
+
+	Una vez subido el repositorio a GitHub, vamos a realizar cambios adicionales en el repositorio local. Para ello, vamos primero a comprobar que
+	nuestro repositorio local esta sincronizado con el repositorio remoto. Para ello hacemos uso del comando "git pull origin main" para
+	actualizar nuestro repositorio local con los cambios del repositorio remoto.
+
+Apartado 14 - Creamos un nuevo fichero
+
+	Comprobamos que diferencias tiene el documento con el referente al repositorio remoto. Para ello hacemos uso del comando "git diff" para
+	ver las diferencias entre el repositorio local y el remoto.
+
+Apartado 15 - Subimos el nuevo fichero
+
+	Una vez comprobadas las diferencias, vamos a subir el nuevo fichero al repositorio remoto. Para ello hacemos uso del comando "git add ."
+	y "git commit -m "Historico de cambios"". A continuación, subimos el repositorio con "git push origin main".
